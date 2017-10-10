@@ -1,0 +1,11 @@
+<div fxLayout="row" fxLayoutAlign="center center">
+  <form action="" fxFlex="75%">
+    <md-form-field>
+      <input mdInput type="text" placeholder="GitHub Username" [formControl]="usernameFormControl">
+    </md-form-field>
+    <md-error *ngIf="usernameFormControl.dirty && usernameFormControl.hasError('required')">
+      Username is <strong>Required</strong>
+    </md-error>
+  </form>
+  <button md-raised-button color="accent" [routerLink]="[usernameFormControl.value]">Search</button>
+</div>

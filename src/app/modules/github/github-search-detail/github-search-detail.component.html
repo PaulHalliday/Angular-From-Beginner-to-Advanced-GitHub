@@ -1,0 +1,20 @@
+<div fxLayout="column" fxLayoutAlign="center center" *ngIf="userInformation$ | async as user; else loading">
+  <md-card>
+    <md-card-header>
+      <img [src]="user.avatar_url" alt="">
+    </md-card-header>
+    <md-card-content>
+      <p>Name: {{user.name}}</p>
+      <p>Company: {{user.company}}</p>
+      <p>Blog: {{user.blog}}</p>
+      <p>Bio: {{user.bio}}</p>
+    </md-card-content>
+  </md-card>
+  <button md-button [routerLink]="['']">Back</button>
+</div>
+
+<ng-template #loading>
+  <div fxLayout fxLayoutAlign="center center">
+    <md-progress-spinner fxFlex color="primary" mode="indeterminate"></md-progress-spinner>
+  </div>
+</ng-template>
